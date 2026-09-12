@@ -1,1 +1,47 @@
+name: Build TotemSMP
 
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Plugin
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle executable
+        run: chmod +x gradlew
+
+      - name: Build TotemSMP
+        run: ./gradlew clean build --no-daemon
+
+      - name: Upload Plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: TotemSMP
+          path: build/libs/*.jar
+          if-no-files-found: error
