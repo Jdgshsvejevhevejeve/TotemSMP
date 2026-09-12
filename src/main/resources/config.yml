@@ -1,0 +1,17 @@
+roll:
+  enabled: true
+  duration-seconds: 5
+skills:
+  enabled: true
+totems:
+  ENDER: { enabled: true, cooldown1: 12, cooldown2: 28 }
+  WARDEN: { enabled: true, cooldown1: 18, cooldown2: 30 }
+  WITHER: { enabled: true, cooldown1: 16, cooldown2: 35 }
+  BLAZE: { enabled: true, cooldown1: 12, cooldown2: 30 }
+  STORM: { enabled: true, cooldown1: 15, cooldown2: 25 }
+  FROST: { enabled: true, cooldown1: 10, cooldown2: 32 }
+  TIDE: { enabled: true, cooldown1: 12, cooldown2: 28 }
+  SHADOW: { enabled: true, cooldown1: 25, cooldown2: 22 }
+  DRAGON: { enabled: true, cooldown1: 25, cooldown2: 40 }
+  SOUL: { enabled: true, cooldown1: 14, cooldown2: 45 }
+  MAGMA: { enabled: true, cooldown1: 12, cooldown2: 32 }

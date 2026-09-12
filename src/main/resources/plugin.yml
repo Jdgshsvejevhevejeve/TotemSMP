@@ -1,0 +1,14 @@
+name: TotemPowers
+version: 1.0.0
+main: me.bogeyman.totempowers.TotemPowers
+api-version: '1.21'
+author: Bogeyman
+description: Eleven permanent random Totem powers for Paper.
+commands:
+  totem:
+    description: TotemPowers administration and player information
+    usage: /totem <info|reroll|give|remove|restore|reload>
+permissions:
+  totempowers.admin:
+    description: Allows TotemPowers administration
+    default: op
