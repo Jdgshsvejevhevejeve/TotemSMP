@@ -18,11 +18,11 @@ permissions:
 
 jobs:
   build:
-    name: Build Plugin
+    name: Build TotemSMP
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Java 21
@@ -30,23 +30,23 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Setup Gradle
+      - name: Setup Gradle 8.10
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.10'
 
       - name: Build TotemSMP
-        run: |
-          gradle clean build --no-daemon --stacktrace
+        run: gradle clean build --no-daemon --stacktrace
 
-      - name: Verify JAR
+      - name: Show Build Output
+        if: success()
         run: |
-          echo "Build completed!"
+          echo "Build successful!"
           ls -lah build/libs/
 
       - name: Upload TotemSMP JAR
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: TotemSMP
